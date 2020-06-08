@@ -1,0 +1,25 @@
+<div>
+    <h2 class="bmargin20" style="margin-left: 20px;margin-top:30px;">Product Details</h2>
+    <div class="col-lg-3 col-md-3">
+        <img [src]="product.productImage" style="height:400px;">
+    </div>
+    <div class="col-lg-5 col-md-5">
+        <h3><b>{{product.productName}}</b></h3>
+        <div *ngIf="product.productPrice > 50000">
+            <div class="red italic" style="font-size:24px;">Out Of Stock!</div>
+        </div>
+        <h2 class="tmargin20">{{'Rs ' +product.productPrice}}</h2>
+        <h5 class="tmargin20" style="line-height: 26px;font-size:19px;">{{product.productFeature}}</h5>
+        <button class="btn btn-primary cart-button" (click)="addToCart(product)"
+        [disabled]="product.productPrice > 50000">
+            <span class="fa fa-shopping-cart"></span> Add to Cart
+        </button>
+        <app-product-alert
+        class="i-block"
+        [productPrice]="product.productPrice"
+        (notifyUser)="onNotify($event)"
+        ></app-product-alert>
+    </div>
+   
+    
+</div>

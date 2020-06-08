@@ -1,0 +1,56 @@
+<div class="col-lg-12">
+    <h2>Shopping Cart</h2>
+    <div *ngIf="addedItems.length; else noItems">
+        <button class="btn btn-primary" style="width: 145px;font-size: 16px;margin-top: 20px;background: #ffa50082;color:#000" (click)="clearCart()">Clear Cart</button>
+        <button class="btn btn-primary" (click)="placeOrder()" style="width: 145px;font-size: 16px;margin-top: 20px;margin-left: 20px;background: green;"
+        [disabled]="showForm">Place Order</button>
+    </div>
+    <ng-template #noItems>
+        <h3 style="color:blue;">Your cart is empty!</h3>
+    </ng-template>
+    
+    <div *ngFor="let item of addedItems">
+        <div class="row tmargin20" style="margin-left: 0px;width: 50%;box-shadow: 3px 1px 3px;padding: 10px;">
+            <div class="col-lg-2 col-md-2">
+                <img [src]="item.productImage"
+                style="height:130px;">
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <h3>{{item.productName}}</h3>
+                <span style="font-size: 
+                18px;"><b>{{'Rs '+item.productPrice}}</b></span>
+                <div (click)="removeFromCart(item.productId)"
+                class="tmargin20 hand red"><b>REMOVE FROM CART</b></div>
+            </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" *ngIf="showForm" style="margin-top: 30px;">
+        <div class="form-group">
+            <label style="width: 70px;">Name</label>
+            <input type="text"
+            class="form-control"
+            style="width: 40%;"
+            ngModel
+            name="username"
+            required
+            #username="ngModel">
+            <p style="color:red" *ngIf="!username.valid && username.touched">Please enter name</p>
+        </div>
+        <div class="form-group">
+            <label  style="width: 70px;">Address</label>
+            <input type="text"
+            class="form-control"
+            style="width: 40%;"
+            ngModel
+            name="address"
+            #address="ngModel"
+            required>
+            <p style="color:red" *ngIf="!address.valid && address.touched">Please enter address</p>
+        </div>
+        <button class="btn btn-primary" type="submit"
+        [disabled]="!f.valid">Purchase</button>
+    </form>
+</div>
+

@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~font-awesome/css/font-awesome.css';
+.bmargin20{
+    margin-bottom: 20px;;
+}
+.bmargin10{
+    margin-bottom: 10px;
+}
+.tmargin20{
+    margin-top: 20px;
+}
+.bold{
+    font-weight: bold;
+}
+.border{
+    border:1px solid #000;
+}
+.hand{
+    cursor: pointer;
+}
+.green{
+    color: green;;
+}
+.grey{
+    color:grey;
+}
+.text-center{
+    text-align: center;
+}
+.red{
+    color:red;
+}
+.italic{
+    font-style: italic;
+}
+.i-block{
+    display: inline-block;
+}

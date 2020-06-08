@@ -1,0 +1,23 @@
+<div class="col-lg-12">
+    <h2 class="bmargin20">Products</h2>
+    <div *ngIf="loading">
+        <h1>Loading...</h1>
+    </div>
+    <div *ngFor="let product of products" style="margin-bottom: 30px;">
+    <div class="col-lg-3 col-md-3 col-sm-3 text-center hand" style="margin-bottom: 30px;"
+    [routerLink]="['/product-details', product.productId]">
+        <img [src]="product.productImage" style="height:200px;">
+        <h4 class="bold"
+        >{{product.productName}}</h4>
+        <div class="bmargin10 green">{{product.productDescription}}</div>
+        <div class="bmargin10 grey">{{'Now Rs '+product.productPrice}}</div>
+    </div>
+    </div>
+    <div class="clearfix"></div>
+    <a
+routerLink="/employees"
+>Click here to go to employee details</a>
+    
+</div>
+
+
