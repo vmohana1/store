@@ -1,25 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+describe('header',()=> {
 
-import { HeaderComponent } from './header.component';
-
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+    let headerTitle = '';
+    
+    beforeEach(()=> {
+        headerTitle = 'My Store';
+        
     })
-    .compileComponents();
-  }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    afterEach(()=> {
+        headerTitle = '';
+    })
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('checks header title', 
+    ()=>expect('My Store').toBe(headerTitle));
+
+    // it('checks if hellotest is not hellotest', 
+    // ()=>expect('hellotest').not.toBe('hellotest5'));
+
+    // it('checks if hellotest starts with hello', 
+    // ()=>expect('hellotest').toMatch(expectMatch));
 });
